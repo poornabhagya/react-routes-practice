@@ -15,9 +15,7 @@ export default function Dashboard() {
       >
         <h2>Dashboard</h2>
         <ul style={{ listStyle: "none", padding: 0 }}>
-          <li style={{ marginBottom: "1rem" }}>
-            <Link to="profile">👤 Profile</Link>
-          </li>
+          
           <li>
             <Link to="settings">⚙️ Settings</Link>
           </li>
