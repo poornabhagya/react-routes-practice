@@ -1,10 +1,12 @@
 import React from "react";
 
-export default function Settings() {
+function Settings() {
   return (
     <div>
-      <h2>⚙️ Settings Page</h2>
-      <p>Change your preferences here.</p>
+      <h2>Settings Page</h2>
+      <p>Only visible to logged-in users.</p>
     </div>
   );
 }
+
+export default Settings;
