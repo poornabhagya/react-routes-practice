@@ -4,21 +4,33 @@ import Home from "./components/home";
 import Dashboard from "./components/dashboard";
 import Settings from "./components/settings";
 import UserProfile from "./components/profile";
+import PrivateRoute from "./components/privateRoute";
+import Login from "./components/login";
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        {/* Regular route */}
+        {/* 🏠 Public Routes */}
         <Route path="/" element={<Home />} />
-        {/* Dynamic Route */}
+        <Route path="/login" element={<Login />} />
+
+        {/* 👤 Dynamic User Profile Route (Public for now) */}
         <Route path="/user/:userId" element={<UserProfile />} />
 
-        {/* Parent route */}
-        <Route path="/dashboard" element={<Dashboard />}>
-          {/* Nested routes */}
-          <Route path="profile" element={<UserProfile />} />
+        {/* 🔒 Protected Dashboard + Nested Routes */}
+        <Route
+          path="/dashboard/*"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        >
+          {/* Nested routes inside Dashboard */}
           <Route path="settings" element={<Settings />} />
+          {/* Add more nested routes like: */}
+          {/* <Route path="tasks" element={<TaskManager />} /> */}
         </Route>
       </Routes>
     </Router>
